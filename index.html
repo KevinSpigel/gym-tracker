@@ -5,15 +5,13 @@
     <meta charset="UTF-8">
 
     <meta name="keywords" content="gym tracker, score card, Loggin">
-    <!-- complete with the keywords -->
 
     <meta name="description" content="Loggin page. Please, enter your username and password.">
-    <!-- complete with the description  -->
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Loggin | Gym Tracker</title>
+    <title>Log in | Gym Tracker</title>
 
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -21,27 +19,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="css/output.css">
 
 </head>
 
-<body>
+<body class="text-center login-body">
+    <main class="form-signin w-100 m-auto card card-box">
+        <form>
+            <img class="mb-4" src="/images/first-image.jpeg" alt="" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Welcome</h1>
 
-    <header>
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                <label for="floatingPassword">Password</label>
+            </div>
 
-    </header>
-
-    <main>
-
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="w-50 btn btn-sm btn-primary" type="submit">Log in</button>
+            <p class="mt-5 mb-3 text-muted">&copy2022 - Desarrollado por Kevin Spigel</p>
+        </form>
     </main>
 
-    <footer>
-        <div>&copy2022 - Desarrollado por Kevin Spigel</div>
-    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <script src="index.js"></script>
 
 </body>
 
