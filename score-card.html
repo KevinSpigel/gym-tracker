@@ -28,55 +28,54 @@
 
     <header>
 
-        <div>
-
-            <div class="btn-group">
-                <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
-                    ⏼
-                </button>
-                <ul class="dropdown-menu dropdown-menu-sm-end">
-                    <li><a class="dropdown-item" href="index.html">Shut down</a></li>
-                    <!-- Acá me gustaría preguntar si está seguro de cerrar sesión. Si dice que si vuelve a la pagina login y si dice que no se queda en esta pagina -->
-                </ul>
-            </div>
-
-            <div class="text-center">
-                <h1>Score Card</h1>
-            </div>
-
+        <div class="d-flex justify-content-center">
             <div>
-                <div class="col-2"><label for="startDate"></label>
-                    <input id="startDate" class="form-control text-center" type="date" />
+                <div class="btn-group">
+                    <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
+                        ⏼
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-sm-end">
+                        <li><a class="dropdown-item" href="index.html">Shut down</a></li>
+                        <!-- Acá me gustaría preguntar si está seguro de cerrar sesión. Si dice que si vuelve a la pagina login y si dice que no se queda en esta pagina -->
+                    </ul>
                 </div>
 
-                <div class="input-group">
-                    <span class="input-group-text" id="input-group-left-example">@</span>
-                    <div class="col-2">
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                            aria-describedby="input-group-left" required>
+                <div class="text-center">
+                    <h1>Score Card</h1>
+                </div>
+                <div>
+                    <div><label for="startDate"></label>
+                        <input id="startDate" class="form-control text-center" type="date" />
                     </div>
-                </div>
 
-                <div class="card w-25 text-center">
-                    <div class="card-body text-center">
-                        <div class="card card-body ">
-                            <!-- Aquí va el contador -->
+                    <div class="input-group">
+                        <span class="input-group-text" id="input-group-left-example">@</span>
+                        <div>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                                aria-describedby="input-group-left" required>
                         </div>
                     </div>
-                    <div>
-                        <button type="button" class="chrono-button">START // PAUSE</button>
-                        <button type="button" class="chrono-button">RESET</button>
+
+                    <div class="card text-center">
+                        <div class="card-body text-center">
+                            <div class="card card-body ">
+                                <!-- Aquí va el contador -->
+                            </div>
+                        </div>
+                        <div>
+                            <button type="button" class="chrono-button">START // PAUSE</button>
+                            <button type="button" class="chrono-button">RESET</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </header>
 
     <main>
 
-        <div>
+        <div class="d-flex justify-content-center">
 
-            <div class="col-4">
+            <div>
                 <select class="form-select text-center" aria-label="Default select">
                     <option selected="">Type of exercise</option>
                     <option value="1">Functional</option>
