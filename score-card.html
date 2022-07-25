@@ -46,12 +46,12 @@
                     <h1>Score Card</h1>
                 </div>
 
-                <div>
+                <div class="d-flex gap-4">
                     <div><label for="startDate"></label>
                         <input id="startDate" class="form-control text-center" type="date" />
                     </div>
 
-                    <div class="input-group">
+                    <div class="input-group mt-4">
                         <span class="input-group-text" id="input-group-left-example">@</span>
                         <div>
                             <input type="text" class="form-control" placeholder="Username" aria-label="Username"
@@ -60,13 +60,14 @@
                     </div>
                 </div>
 
-                <div class="card text-center">
+                <div class="card text-center mt-4">
                     <div class="card-body text-center">
-                        <div class="card card-body ">
+                        <div class="card card-body bg-dark text-light ">
                             <!-- Aquí va el contador -->
+                            <p class="h1">XX:XX:XX</p>
                         </div>
                     </div>
-                    <div>
+                    <div class="d-flex justify-content-center gap-4">
                         <button type="button" class="chrono-button">START // PAUSE</button>
                         <button type="button" class="chrono-button">RESET</button>
                     </div>
@@ -79,7 +80,7 @@
 
         <div class="d-flex justify-content-center row">
 
-            <div class="col-5">
+            <div class="col-5 mt-5 ">
                 <select class="form-select text-center" aria-label="Default select">
                     <option selected="">Type of exercise</option>
                     <option value="1">Functional</option>
@@ -93,7 +94,7 @@
             <div class="d-flex justify-content-center row">
                 <form id="form-order">
 
-                    <div class="justify-content-center row">
+                    <div class="justify-content-center row mt-5 ">
                         <div class="mb-2 text-center col-2">
                             <label for="name" class="form-label">Ejercicio</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="">
@@ -125,7 +126,7 @@
 
 
 
-                    <div class="justify-content-center row">
+                    <div class="justify-content-center row mt-4">
                         <div class="mb-2 text-center col-2">
                             <label for="name" class="form-label"></label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="">
@@ -158,7 +159,7 @@
 
 
 
-                    <div class="justify-content-center row">
+                    <div class="justify-content-center row mt-4">
                         <div class="mb-2 text-center col-2">
                             <label for="name" class="form-label"></label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="">
@@ -189,7 +190,7 @@
                     </div>
 
 
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex justify-content-evenly mt-5">
                         <button type="button" class="save-button">Save</button>
                         <button type="button" class="clean-button">Clean</button>
                     </div>
@@ -198,7 +199,7 @@
         </div>
     </main>
 
-    <footer class="text-center">
+    <footer class="text-center mt-5">
         <div>&copy2022 - Desarrollado por Kevin Spigel</div>
     </footer>
 
