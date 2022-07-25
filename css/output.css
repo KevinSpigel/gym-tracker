@@ -46,7 +46,7 @@ body {
   border-radius: 10px;
 }
 
-.button, .clean-button, .save-button {
+.button, .chrono-button, .clean-button, .save-button {
   border: none;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -63,6 +63,11 @@ body {
 
 .clean-button {
   background-color: darkred;
+}
+
+.chrono-button {
+  background-color: rgba(0, 119, 255, 0.878);
+  margin-top: 15px;
 }
 
 /*# sourceMappingURL=output.css.map */

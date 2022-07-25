@@ -21,3 +21,9 @@
     @extend .button;
     background-color: darkred;
 }
+
+.chrono-button{
+    @extend .button;
+    background-color: rgba(0, 119, 255, 0.878);
+    margin-top: 15px;
+}
