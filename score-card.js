@@ -7,6 +7,20 @@ if (shutDown === true) {
     console.log("See you later💪🏼")
 }
 
+
+
+// This array and function would be use for the selector of "type of exercise" in the score-card.html.
+
+const typeExercise=['Functional','Cycling','GYM','Running']
+
+function listExercise () {
+    for (let i=0; i < typeExercise.length; i++)
+    {console.log (typeExercise[i])}
+}
+
+
+
+
 // debugger
 
 class DayExercise {
@@ -24,9 +38,14 @@ function newExercise() {
     let roundRep = prompt("Rounds, Reps");
     let weight = prompt("Weight");
     let time = prompt("Time, Rounds, Reps");
-    const newExercise = new DayExercise(ejercicio, roundRep, weight, time);
-    console.log(newExercise);
+    
+    rutine.push(new DayExercise(exercise, roundRep, weight, time))
+
+    console.table(rutine)
 }
 
 
-// Need to add Array function to enable to save new DayExercise.
+// Array to enable save new DayExercise.
+
+const rutine = []
+
