@@ -18,9 +18,6 @@ function listExercise () {
     {console.log (typeExercise[i])}
 }
 
-
-
-
 // debugger
 
 class DayExercise {
@@ -43,7 +40,6 @@ function newExercise() {
 
     console.table(rutine)
 }
-
 
 // Array to enable save new DayExercise.
 
