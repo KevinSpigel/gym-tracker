@@ -29,3 +29,5 @@ function logIn(user, pwd) {
         logIn();
     }
 }
+
+logIn();

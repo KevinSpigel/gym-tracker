@@ -1,5 +1,7 @@
-// @media (min-width: 375px) and (max-width: 450px) {}
-//La idea es hacer solo versión mobile.
+.p-chrono {
+    color: green;
+    font-size: 4rem;
+}
 
 .button {
     border: none;
@@ -22,8 +24,17 @@
     background-color: darkred;
 }
 
-.chrono-button{
+.chrono-button {
     @extend .button;
-    background-color: rgba(0, 119, 255, 0.878);
+    background-color: rgba(54, 144, 246, 0.79);
     margin-top: 15px;
+}
+
+.add-exercise-button {
+    @extend .button;
+    background-color: rgba(91, 88, 88, 0.379);
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin-left: 35px;
 }
