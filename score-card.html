@@ -41,8 +41,7 @@
                     ⏼
                 </button>
                 <ul class="dropdown-menu dropdown-menu-sm-end">
-                    <li><a class="dropdown-item" href="index.html">Shut down</a></li>
-                    <!-- Acá me gustaría preguntar si está seguro de cerrar sesión. Si dice que si vuelve a la pagina login y si dice que no se queda en esta pagina -->
+                    <li class="dropdown-item">Shut down</li>
                 </ul>
             </div>
         </div>
@@ -56,27 +55,30 @@
 
                 <div class="d-flex gap-4">
                     <div><label for="startDate"></label>
-                        <input id="startDate" class="form-control text-center" type="date" />
+                        <input id="startDate dateInput" class="form-control text-center" type="date" />
                     </div>
 
                     <div class="input-group mt-4">
                         <span class="input-group-text" id="input-group-left-example">@</span>
                         <div>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                                aria-describedby="input-group-left" required>
+                            <input id="usernameInput" type="text" class="form-control" placeholder="Username"
+                                aria-label="Username" aria-describedby="input-group-left" required>
                         </div>
                     </div>
                 </div>
 
                 <div class="card-body text-center">
                     <div class="card card-body bg-dark text-light mt-3 rounded-pill">
-                        <!-- Aquí va el contador -->
-                        <p class="h1 p-chrono">00:00:00</p>
+                        <p id = "timeElapsed" class="h1 p-chrono"></p>
+                        <div id="flagContainer" class="d-flex-col"> </div>
                     </div>
+                    
                 </div>
                 <div class="d-flex justify-content-center gap-4">
-                    <button type="button" class="chrono-button">START // PAUSE</button>
-                    <button type="button" class="chrono-button">RESET</button>
+                    <button id="btnStart" type="button" class="chrono-button-start">START</button>
+                    <button id="btnPause" type="button" class="chrono-button-pause">PAUSE</button>
+                    <button id="btnFlag" type="button" class="chrono-button-flag">FLAG</button>
+                    <button id="btnReset" type="button" class="chrono-button-reset">RESET</button>
                 </div>
 
 
@@ -88,12 +90,8 @@
         <div class="d-flex justify-content-center row">
 
             <div class="col-5 mt-5 ">
-                <select class="form-select text-center" aria-label="Default select">
-                    <option selected="">Type of exercise</option>
-                    <option value="1">Functional</option>
-                    <option value="2">Cycling</option>
-                    <option value="3">GYM</option>
-                    <option value="4">Running</option>
+                <select id="selectSport" class="form-select text-center" aria-label="Default select">
+                    <option selected>Type of exercise</option>
                 </select>
             </div>
 
@@ -103,7 +101,7 @@
 
                     <div class="justify-content-center align-items-baseline row mt-5">
                         <div class="mb-2 text-center col-2">
-                            <label for="name" class="form-label">Ejercicio</label>
+                            <label for="name" class="form-label">Exercise</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="">
                         </div>
 
@@ -114,12 +112,14 @@
 
                         <div class="mb-2 text-center col-2">
                             <label for="name" class="form-label">Weight</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="">
+                            <input id="weightInput" type="text" name="name" class="form-control" id="name"
+                                placeholder="">
                         </div>
 
                         <div class="mb-2 text-center col-2">
                             <label for="name" class="form-label">Time / Round / Reps</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="">
+                            <input id="timeRoundInput" type="text" name="name" class="form-control" id="name"
+                                placeholder="">
                         </div>
 
                     </div>
@@ -130,21 +130,21 @@
                             <label for="floatingTextarea">Comments</label>
                         </div>
                         <div class="d-flex justify-content-end mt-5">
-                            <button type="button" class="btn add-exercise-button">+</button>
+                            <button id="newExerciseForm" type="button" class="btn add-exercise-button">+</button>
                         </div>
                     </div>
+                </form>
 
-                    <div class="d-flex justify-content-evenly mt-5">
-                        <button type="button" class="save-button">Save</button>
-                        <button type="button" class="clean-button">Clean</button>
-                    </div>
+                <div class="d-flex justify-content-evenly mt-5">
+                    <button id="saveButton" type="button" class="save-button">Save</button>
+                    <button id="clearButton" type="button" class="clear-button">Clear</button>
+                </div>
             </div>
-        </div>
-        </div>
+
     </main>
 
     <footer class="text-center mt-5">
-        <div>&copy2022 - Desarrollado por Kevin Spigel</div>
+        <div>&copy2022 - By Kevin Spigel</div>
     </footer>
 
 </body>

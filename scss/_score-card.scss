@@ -19,15 +19,30 @@
     background-color: darkgreen;
 }
 
-.clean-button {
+.clear-button {
     @extend .button;
     background-color: darkred;
 }
 
-.chrono-button {
+.chrono-button-start {
     @extend .button;
     background-color: rgba(54, 144, 246, 0.79);
     margin-top: 15px;
+}
+
+.chrono-button-pause {
+    @extend .chrono-button-start;
+    background-color: rgb(232, 232, 8);
+}
+
+.chrono-button-flag {
+    @extend .chrono-button-start;
+    background-color: rgba(16, 169, 5, 0.79);
+}
+
+.chrono-button-reset {
+    @extend .chrono-button-start;
+    background-color: rgba(246, 54, 54, 0.79);
 }
 
 .add-exercise-button {

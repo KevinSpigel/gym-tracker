@@ -51,7 +51,7 @@ body {
   font-size: 4rem;
 }
 
-.button, .add-exercise-button, .chrono-button, .clean-button, .save-button {
+.button, .add-exercise-button, .chrono-button-start, .chrono-button-reset, .chrono-button-flag, .chrono-button-pause, .clear-button, .save-button {
   border: none;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -66,13 +66,25 @@ body {
   background-color: darkgreen;
 }
 
-.clean-button {
+.clear-button {
   background-color: darkred;
 }
 
-.chrono-button {
+.chrono-button-start, .chrono-button-reset, .chrono-button-flag, .chrono-button-pause {
   background-color: rgba(54, 144, 246, 0.79);
   margin-top: 15px;
+}
+
+.chrono-button-pause {
+  background-color: rgb(232, 232, 8);
+}
+
+.chrono-button-flag {
+  background-color: rgba(16, 169, 5, 0.79);
+}
+
+.chrono-button-reset {
+  background-color: rgba(246, 54, 54, 0.79);
 }
 
 .add-exercise-button {
