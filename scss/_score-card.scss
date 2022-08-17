@@ -47,9 +47,15 @@
 
 .add-exercise-button {
     @extend .button;
-    background-color: rgba(91, 88, 88, 0.379);
+    background-color: rgba(16, 169, 5, 0.63);
     width: 30px;
     height: 30px;
     padding: 0;
-    margin-left: 35px;
+    margin-left: 15px;
+}
+
+.delete-exercise-button {
+    @extend .add-exercise-button;
+    background-color: rgba(174, 19, 19, 0.63);
+    padding-top: 4px;
 }

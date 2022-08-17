@@ -131,46 +131,69 @@ listSport();
 
 // Button to add newExercise 
 const newExerciseForm = document.querySelector("#newExerciseForm")
+const form = document.querySelector("#form-order")
 
 newExerciseForm.addEventListener("click", newExercise)
 
+let exerciseID = 1;
 
 function newExercise() {
+
     let newForm = document.createElement("div");
-    newForm.innerHTML += `<div class="justify-content-center align-items-baseline row mt-4">
-    <div class="mb-2 text-center col-2">
-        <label for="name" class="form-label"></label>
-        <input type="text" name="name" class="form-control" id="name" placeholder="">
-    </div>
-    
-    <div class="mb-2 text-center col-2">
-        <label for="name" class="form-label"></label>
-        <input type="text" name="name" class="form-control" id="name" placeholder="">
-    </div>
-    
-    <div class="mb-2 text-center col-2">
-        <label for="name" class="form-label"></label>
-        <input type="text" name="name" class="form-control" id="name" placeholder="">
-    </div>
-    
-    <div class="mb-2 text-center col-2">
-        <label for="name" class="form-label"></label>
-        <input type="text" name="name" class="form-control" id="name" placeholder="">
-    </div>
-    
-    
+    newForm.id = `form${exerciseID}`;
+    newForm.innerHTML +=
+        `<div class="justify-content-center align-items-baseline row mt-5">
+        <div class="mb-2 text-center col-2">
+            <label for="name" class="form-label">Exercise</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="">
+        </div>
+
+        <div class="mb-2 text-center col-2">
+            <label for="name" class="form-label">Rounds & Reps</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="">
+        </div>
+
+        <div class="mb-2 text-center col-2">
+            <label for="name" class="form-label">Weight</label>
+            <input id="weightInput" type="text" name="name" class="form-control" id="name"
+                placeholder="">
+        </div>
+
+        <div class="mb-2 text-center col-2">
+            <label for="name" class="form-label">Time / Round / Reps</label>
+            <input id="timeRoundInput" type="text" name="name" class="form-control" id="name"
+                placeholder="">
+        </div>
+
     </div>
     <div class="d-flex justify-content-center">
-    <div class="form-floating col-5">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
-            style="height: 60px"></textarea>
-        <label for="floatingTextarea">Comments</label>
-    </div>
-    <div class="d-flex justify-content-end mt-5">
-    <button id="newExerciseForm" type="button" class="btn add-exercise-button">+</button>
-</div>
+        <div class="form-floating col-5">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
+                style="height: 60px"></textarea>
+            <label for="floatingTextarea">Comments</label>
+        </div>
+        <div class="d-flex justify-content-end mt-5">
+        <button" type="button" class="btn delete-exercise-button">-</button>
     </div>`;
-    document.body.appendChild(newForm);
+    form.append(newForm);
+    exerciseID++;
+    newExerciseDelete();
+};
+
+
+// Button to delete newExercise 
+
+function newExerciseDelete() {
+
+    let btnDelete= document.querySelectorAll (".delete-exercise-button")
+
+    btnDelete.forEach((btn) => {
+        btn.addEventListener("click", (evt) => {
+            console.log(
+                evt.target.parentElement.parentElement.parentElement.remove()
+            );
+        });
+    });
 }
 
 
