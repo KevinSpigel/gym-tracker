@@ -1,7 +1,6 @@
-
 // Shut down button
 
-const shutDown = document.querySelector("li")
+const shutDown = document.querySelector("#out")
 shutDown.addEventListener("click", logOut)
 
 function logOut() {
@@ -12,7 +11,7 @@ function logOut() {
 }
 
 
-//Chronometer
+// Chronometer
 
 document.addEventListener("DOMContentLoaded", () => {
     const $timeElapsed = document.querySelector("#timeElapsed"),
@@ -113,15 +112,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Selector of "type of exercise" in the score-card.html.
+// Type of exercise Selector.
 
 const typeSport = ['Functional', 'Cycling', 'GYM', 'Running']
 const selectSport = document.querySelector("#selectSport")
 
-function listSport() {
-    typeSport.sort();
+const listSport = () => {
+    if (typeSport.length > 0)
+        typeSport.sort();
     typeSport.forEach(sport => {
-        selectSport.innerHTML += `<option>${sport}</option>`
+        selectSport.innerHTML += `<option id="selectInput">${sport}</option>`
     })
 }
 
@@ -129,7 +129,8 @@ listSport();
 
 
 
-// Button to add newExercise 
+// Add newExercise Button
+
 const newExerciseForm = document.querySelector("#newExerciseForm")
 const form = document.querySelector("#form-order")
 
@@ -142,33 +143,33 @@ function newExercise() {
     let newForm = document.createElement("div");
     newForm.id = `form${exerciseID}`;
     newForm.innerHTML +=
-        `<div class="justify-content-center align-items-baseline row mt-5">
+        `<div id="form" class="justify-content-center align-items-baseline row mt-5">
         <div class="mb-2 text-center col-2">
             <label for="name" class="form-label">Exercise</label>
-            <input type="text" name="name" class="form-control" id="name" placeholder="">
+            <input type="text" name="name" class="form-control" id="exerciseInput" placeholder="">
         </div>
 
         <div class="mb-2 text-center col-2">
             <label for="name" class="form-label">Rounds & Reps</label>
-            <input type="text" name="name" class="form-control" id="name" placeholder="">
+            <input id= "roundInput" type="text" name="name" class="form-control" placeholder="">
         </div>
 
         <div class="mb-2 text-center col-2">
             <label for="name" class="form-label">Weight</label>
-            <input id="weightInput" type="text" name="name" class="form-control" id="name"
+            <input id="weightInput" type="text" name="name" class="form-control" 
                 placeholder="">
         </div>
 
         <div class="mb-2 text-center col-2">
             <label for="name" class="form-label">Time / Round / Reps</label>
-            <input id="timeRoundInput" type="text" name="name" class="form-control" id="name"
+            <input id="timeRoundInput" type="text" name="name" class="form-control" 
                 placeholder="">
         </div>
 
     </div>
     <div class="d-flex justify-content-center">
         <div class="form-floating col-5">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
+            <textarea id="commentInput" class="form-control" placeholder="Leave a comment here"
                 style="height: 60px"></textarea>
             <label for="floatingTextarea">Comments</label>
         </div>
@@ -181,16 +182,16 @@ function newExercise() {
 };
 
 
-// Button to delete newExercise 
+// Delete newExercise Button
 
-function newExerciseDelete() {
+const newExerciseDelete = () => {
 
-    let btnDelete= document.querySelectorAll (".delete-exercise-button")
+    let btnDelete = document.querySelectorAll(".delete-exercise-button")
 
     btnDelete.forEach((btn) => {
-        btn.addEventListener("click", (evt) => {
+        btn.addEventListener("click", (e) => {
             console.log(
-                evt.target.parentElement.parentElement.parentElement.remove()
+                e.target.parentElement.parentElement.parentElement.remove()
             );
         });
     });
@@ -198,55 +199,73 @@ function newExerciseDelete() {
 
 
 
-// //Save button 
+// Save button 
+
+let btnSave = document.querySelector("#saveButton")
+
+btnSave.addEventListener("click", saveForm)
+
+const inputDate = document.querySelector("#dateInput")
+const inputSelect = document.querySelector("#selectInput")
+const inputExercise = document.querySelector("#exerciseInput")
+const inputRound = document.querySelector("#roundInput")
+const inputWeight = document.querySelector("#weightInput")
+const inputTimeRound = document.querySelector("#timeRoundInput")
+const inputComment = document.querySelector("#commentInput")
+
+const dataValidation = () => {
+    if (inputDate.value != "" && inputSelect.value != "Type of exercise" && inputExercise.value != "" && inputRound.value != "" && inputWeight.value != "" && inputTimeRound.value != "" && inputComment.value != "") {
+        return true
+    } else {
+        return false
+    }
+}
 
 
-// let dateInput = document.querySelector("#dateInput");
-// let usernamInput = document.querySelector("#usernamInput");
-// let typeExerciseInput = document.querySelector("#typeExerciseInput");
-// //en el selector del tipo de ejercicio como hago par aponerl el ID?
+class DayExercise {
+    constructor(day, user, type, exercise, roundRep, weight, time, comment) {
+        this.day = day;
+        this.user = user;
+        this.type = type;
+        this.exercise = exercise;
+        this.roundRep = roundRep;
+        this.weight = weight;
+        this.time = time;
+        this.comment = comment;
+    }
+}
 
-// let exerciseInput = document.querySelector("#exerciseInput");
-// let roundsInput = document.querySelector("#roundsInput");
-// let weightInput = document.querySelector("#weightInput");
-// let timeRoundInput = document.querySelector("#timeRoundInput");
-// let commentInput = document.querySelector("#commentInput");
-// //en el comment cómo hago par aponerl el ID?
+function saveForm() {
 
-// const saveButton = document.querySelector("#saveButton")
-
-// saveButton.addEventListener("click", saveButton)
-
-// function saveButton(e) {
-//     e.preventDefault();
-
-//     let dateEntry = dateInput.value;
-//     let usernameEntry = usernamInput.value;
-//     let typeExerciseEntry = typeExerciseInput.value;
-//     let exerciseEntry = exerciseInput.value;
-//     let roundsEntry = roundsInput.value;
-//     let weightEntry = weightInput.value;
-//     let timeRoundEntry = timeRoundInput.value;
-//     let commentEntry = commentInput.value;
-
-//     rutine.push(saveButton(dateEntry, usernameEntry, typeExerciseEntry, exerciseEntry, roundsEntry, weightEntry, timeRoundEntry, commentEntry))
-
-//     console.table(rutine)
-// }
-
-// const rutine = []
+    if (dataValidation()) {
+        let day = inputDate.value;
+        let weight = inputWeight.value;
+        let user = sessionStorage.getItem("userNameOk");
+        let type = inputSelect.value;
+        let exercise = inputExercise.value;
+        let roundRep = inputRound.value;
+        let time = inputTimeRound.value;
+        let comment = inputComment.value;
 
 
+        rutine.push(new DayExercise(day, user, type, exercise, roundRep, weight, time, comment))
+        localStorage.setItem("rutineArray", JSON.stringify(rutine))
+        form.reset()
+    }
 
-// // Clear button 
+    else {
 
-// const clearButton = document.querySelector("#clearButton")
+        let errorMessage = document.createElement("div");
+        errorMessage.innerHTML = `<h6 class= "modal-dialog alert alert-danger fixed-bottom text-center"> 🔐 Save error: incomplete fields 🔐</h6>`;
+        document.body.append(errorMessage);
+        setTimeout(() => {
+            errorMessage.remove();
+        }, 2300);
+    }
+}
 
-// clearButton.addEventListener("click", clearButton)
+let rutine = []
+rutine = JSON.parse(localStorage.getItem("rutineArray")) || []
 
-// function clearButton(e) {
-//     e.preventDefault();
-//     saveButton().remove()
-// }
 
 

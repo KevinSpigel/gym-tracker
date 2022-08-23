@@ -12,6 +12,18 @@ body {
   height: 100vh;
 }
 
+.p-footer {
+  font-size: small;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+a:hover {
+  color: currentColor;
+}
+
 .login-body {
   display: flex;
   align-items: center;
@@ -51,7 +63,7 @@ body {
   font-size: 4rem;
 }
 
-.button, .add-exercise-button, .delete-exercise-button, .chrono-button-start, .chrono-button-reset, .chrono-button-flag, .chrono-button-pause, .clear-button, .save-button {
+.button, .add-exercise-button, .delete-exercise-button, .chrono-button-start, .chrono-button-reset, .chrono-button-flag, .chrono-button-pause, .save-button {
   border: none;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -64,10 +76,6 @@ body {
 
 .save-button {
   background-color: darkgreen;
-}
-
-.clear-button {
-  background-color: darkred;
 }
 
 .chrono-button-start, .chrono-button-reset, .chrono-button-flag, .chrono-button-pause {

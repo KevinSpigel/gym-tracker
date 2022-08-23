@@ -19,11 +19,6 @@
     background-color: darkgreen;
 }
 
-.clear-button {
-    @extend .button;
-    background-color: darkred;
-}
-
 .chrono-button-start {
     @extend .button;
     background-color: rgba(54, 144, 246, 0.79);
