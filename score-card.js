@@ -1,3 +1,9 @@
+
+// Log In retry
+
+(sessionStorage.getItem("userNameOk") === null) && (location.href= "index.html");
+
+
 // Shut down button
 
 const shutDown = document.querySelector("#out")
@@ -5,10 +11,7 @@ shutDown.addEventListener("click", logOut)
 
 function logOut() {
     let goOut = confirm("Are you sure you want to Log Out?")
-    if (goOut) {
-        location.href = "index.html"
-    }
-}
+    (goOut) && (location.href = "index.html")}
 
 
 // Chronometer
@@ -121,7 +124,7 @@ const listSport = () => {
     if (typeSport.length > 0)
         typeSport.sort();
     typeSport.forEach(sport => {
-        selectSport.innerHTML += `<option id="selectInput">${sport}</option>`
+        selectSport.innerHTML += `<option>${sport}</option>`
     })
 }
 
@@ -170,7 +173,7 @@ function newExercise() {
     <div class="d-flex justify-content-center">
         <div class="form-floating col-5">
             <textarea id="commentInput" class="form-control" placeholder="Leave a comment here"
-                style="height: 60px"></textarea>
+                style="height: 60px maxlength="90""></textarea>
             <label for="floatingTextarea">Comments</label>
         </div>
         <div class="d-flex justify-content-end mt-5">
@@ -206,20 +209,15 @@ let btnSave = document.querySelector("#saveButton")
 btnSave.addEventListener("click", saveForm)
 
 const inputDate = document.querySelector("#dateInput")
-const inputSelect = document.querySelector("#selectInput")
+const inputSelect = document.querySelector("#selectSport")
 const inputExercise = document.querySelector("#exerciseInput")
 const inputRound = document.querySelector("#roundInput")
 const inputWeight = document.querySelector("#weightInput")
 const inputTimeRound = document.querySelector("#timeRoundInput")
 const inputComment = document.querySelector("#commentInput")
 
-const dataValidation = () => {
-    if (inputDate.value != "" && inputSelect.value != "Type of exercise" && inputExercise.value != "" && inputRound.value != "" && inputWeight.value != "" && inputTimeRound.value != "" && inputComment.value != "") {
-        return true
-    } else {
-        return false
-    }
-}
+const dataValidation = () =>
+    (inputDate.value != "" && inputSelect.value != "Type of exercise" && inputExercise.value != "" && inputRound.value != "" && inputWeight.value != "" && inputTimeRound.value != "" && inputComment.value != "") ? true : false;
 
 
 class DayExercise {
