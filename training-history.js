@@ -7,11 +7,25 @@
 // Shut down button
 
 const shutDown = document.querySelector("#out")
-shutDown.addEventListener("click", logOut)
+shutDown.addEventListener("click", logOutMessage)
 
-function logOut() {
-    let goOut = confirm("Are you sure you want to Log Out?")
-    (goOut) && (location.href = "index.html")}
+// Log-Out message
+
+function logOutMessage() {
+    Swal.fire({
+        icon: 'warning',
+        title: "",
+        text: "Are you sure you want to Log Out?",
+        showConfirmButton: true,
+        showCancelButton: true,
+    })
+        .then((result) => {
+            if (result.isConfirmed) {
+                (location.href = "index.html")
+            }
+            else if (result.isDenied) { return false }
+        });
+}
 
 
 // Tracking training table

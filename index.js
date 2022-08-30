@@ -1,3 +1,5 @@
+// Log-In score card web app
+
 
 let nameInput = document.querySelector("#nameLogIn");
 
@@ -18,7 +20,6 @@ const userDataBase = [
 
 function userValidation(e) {
     e.preventDefault();
-    ;
 
     let user = nameInput.value;
     let pwd = passInput.value;
@@ -33,13 +34,8 @@ function userValidation(e) {
         location.href = "score-card.html";
     }
 
-    else if (userProfile === undefined) {
-
-        let messageDiv = document.createElement("div");
-        messageDiv.innerHTML = `<h2 class= "modal-dialog alert alert-danger fixed-bottom">⛔️ ACCESS DENIED: Incorrect Username or Password.</h2>`;
-        document.body.append(messageDiv);
-        setTimeout(() => {
-            messageDiv.remove();
-        }, 2300);
-    }
+    else if (userProfile === undefined) {errorMessage ("ACCESS DENIED", "Incorrect Username or Password.")}
 }
+
+
+

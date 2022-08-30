@@ -1,17 +1,32 @@
 
 // Log In retry
 
-(sessionStorage.getItem("userNameOk") === null) && (location.href= "index.html");
+(sessionStorage.getItem("userNameOk") === null) && (location.href = "index.html");
 
 
 // Shut down button
 
 const shutDown = document.querySelector("#out")
-shutDown.addEventListener("click", logOut)
+shutDown.addEventListener("click", logOutMessage)
 
-function logOut() {
-    let goOut = confirm("Are you sure you want to Log Out?")
-    (goOut) && (location.href = "index.html")}
+// Log-Out message
+
+function logOutMessage() {
+    Swal.fire({
+        icon: 'warning',
+        title: "",
+        text: "Are you sure you want to Log Out?",
+        showConfirmButton: true,
+        showCancelButton: true,
+    })
+        .then((result) => {
+            if (result.isConfirmed) {
+                (location.href = "index.html")
+            }
+            else if (result.isDenied) { return false }
+        });
+}
+
 
 
 // Chronometer
@@ -88,15 +103,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+
+    // Reset chronometer message
+
     const resetTime = () => {
-        if (!confirm("Do you want to reset the time?")) {
-            return;
-        }
-        clearInterval(idInterval);
-        init();
-        benchmarks = [];
-        putFlag();
-        timeDiference = 0;
+        Swal.fire({
+            icon: 'warning',
+            title: "Do you want to reset the time?",
+            showConfirmButton: true,
+            showCancelButton: true,
+        })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    clearInterval(idInterval);
+                    init();
+                    benchmarks = [];
+                    putFlag();
+                    timeDiference = 0;
+                }
+                else if (result.isDenied) { return false }
+            });
     }
 
     const init = () => {
@@ -146,39 +172,39 @@ function newExercise() {
     let newForm = document.createElement("div");
     newForm.id = `form${exerciseID}`;
     newForm.innerHTML +=
-        `<div id="form" class="justify-content-center align-items-baseline row mt-5">
+        `<div id="form" class="justify-content-center align-items-baseline row mt-5 formClass">
         <div class="mb-2 text-center col-2">
             <label for="name" class="form-label">Exercise</label>
-            <input type="text" name="name" class="form-control" id="exerciseInput" placeholder="">
+            <input type="text" name="name" class="form-control inputClass" id="exerciseInput" placeholder="">
         </div>
 
         <div class="mb-2 text-center col-2">
             <label for="name" class="form-label">Rounds & Reps</label>
-            <input id= "roundInput" type="text" name="name" class="form-control" placeholder="">
+            <input id= "roundInput" type="text" name="name" class="form-control inputClass" placeholder="">
         </div>
 
         <div class="mb-2 text-center col-2">
             <label for="name" class="form-label">Weight</label>
-            <input id="weightInput" type="text" name="name" class="form-control" 
+            <input id="weightInput" type="text" name="name" class="form-control inputClass" 
                 placeholder="">
         </div>
 
         <div class="mb-2 text-center col-2">
             <label for="name" class="form-label">Time / Round / Reps</label>
-            <input id="timeRoundInput" type="text" name="name" class="form-control" 
+            <input id="timeRoundInput" type="text" name="name" class="form-control inputClass" 
                 placeholder="">
         </div>
-
-    </div>
-    <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center">
         <div class="form-floating col-5">
-            <textarea id="commentInput" class="form-control" placeholder="Leave a comment here"
+            <textarea id="commentInput" class="form-control inputClass" placeholder="Leave a comment here"
                 style="height: 60px maxlength="90""></textarea>
             <label for="floatingTextarea">Comments</label>
         </div>
         <div class="d-flex justify-content-end mt-5">
         <button" type="button" class="btn delete-exercise-button">-</button>
-    </div>`;
+    </div>
+    </div>
+`;
     form.append(newForm);
     exerciseID++;
     newExerciseDelete();
@@ -193,9 +219,7 @@ const newExerciseDelete = () => {
 
     btnDelete.forEach((btn) => {
         btn.addEventListener("click", (e) => {
-            console.log(
-                e.target.parentElement.parentElement.parentElement.remove()
-            );
+            e.target.parentElement.parentElement.parentElement.remove();
         });
     });
 }
@@ -206,18 +230,16 @@ const newExerciseDelete = () => {
 
 let btnSave = document.querySelector("#saveButton")
 
-btnSave.addEventListener("click", saveForm)
+btnSave.addEventListener("click", saveAll)
 
 const inputDate = document.querySelector("#dateInput")
 const inputSelect = document.querySelector("#selectSport")
-const inputExercise = document.querySelector("#exerciseInput")
-const inputRound = document.querySelector("#roundInput")
-const inputWeight = document.querySelector("#weightInput")
-const inputTimeRound = document.querySelector("#timeRoundInput")
-const inputComment = document.querySelector("#commentInput")
 
-const dataValidation = () =>
-    (inputDate.value != "" && inputSelect.value != "Type of exercise" && inputExercise.value != "" && inputRound.value != "" && inputWeight.value != "" && inputTimeRound.value != "" && inputComment.value != "") ? true : false;
+
+const validateData = (exerciseValue, roundValue, weightValue, timeRoundValue, commentValue) =>
+    (exerciseValue != "" && roundValue != "" && weightValue != "" && timeRoundValue != "" && commentValue != "") ? true : false;
+
+const isValidCommonData = () => (inputDate.value != "" && inputSelect.value != "Type of exercise") ? true : false;
 
 
 class DayExercise {
@@ -233,34 +255,52 @@ class DayExercise {
     }
 }
 
-function saveForm() {
+function saveAll() {
 
-    if (dataValidation()) {
-        let day = inputDate.value;
-        let weight = inputWeight.value;
-        let user = sessionStorage.getItem("userNameOk");
-        let type = inputSelect.value;
-        let exercise = inputExercise.value;
-        let roundRep = inputRound.value;
-        let time = inputTimeRound.value;
-        let comment = inputComment.value;
+    if (!isValidCommonData()) {
+        errorMessage("SAVE ERROR", "Incomplete Date or Type Exercise.");
+    } else {
+        const allForms = document.getElementsByClassName('formClass');
 
+        for (i = 0; i < allForms.length; i++) {
+            inputs = allForms[i].getElementsByClassName('inputClass');
 
-        rutine.push(new DayExercise(day, user, type, exercise, roundRep, weight, time, comment))
-        localStorage.setItem("rutineArray", JSON.stringify(rutine))
-        form.reset()
+            let exerciseValue = inputs.exerciseInput.value;
+            let roundValue = inputs.roundInput.value;
+            let weightValue = inputs.weightInput.value;
+            let timeRoundValue = inputs.timeRoundInput.value;
+            let commentValue = inputs.commentInput.value;
+
+            if (validateData(exerciseValue, roundValue, weightValue, timeRoundValue, commentValue)) {
+                let day = inputDate.value;
+                let weight = weightValue
+                let user = sessionStorage.getItem("userNameOk");
+                let type = inputSelect.value;
+                let exercise = exerciseValue;
+                let roundRep = roundValue;
+                let time = timeRoundValue;
+                let comment = commentValue;
+
+                rutine.push(new DayExercise(day, user, type, exercise, roundRep, weight, time, comment))
+                localStorage.setItem("rutineArray", JSON.stringify(rutine))
+                succedMessage("Upload Successful")
+
+            } else {
+                allForms[i].classList.add('formError')
+                j = i;
+                setTimeout(() => {
+                    const removeClass = document.querySelector (".formError");
+                    removeClass.classList.remove('formError')
+                // allForms[j].classList.remove('formError');
+                }, 3000);
+
+                errorMessage("SAVE ERROR", "Incomplete fields in forms");
+            }
+        }
     }
-
-    else {
-
-        let errorMessage = document.createElement("div");
-        errorMessage.innerHTML = `<h6 class= "modal-dialog alert alert-danger fixed-bottom text-center"> 🔐 Save error: incomplete fields 🔐</h6>`;
-        document.body.append(errorMessage);
-        setTimeout(() => {
-            errorMessage.remove();
-        }, 2300);
-    }
+    form.reset()
 }
+
 
 let rutine = []
 rutine = JSON.parse(localStorage.getItem("rutineArray")) || []
