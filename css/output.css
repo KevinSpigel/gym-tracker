@@ -63,7 +63,7 @@ a:hover {
   font-size: 4rem;
 }
 
-.button, .add-exercise-button, .delete-exercise-button, .chrono-button-start, .chrono-button-reset, .chrono-button-flag, .chrono-button-pause, .save-button {
+.button, .add-exercise-button, .delete-exercise-button, .chrono-button-start, .chrono-button-reset, .chrono-button-flag, .chrono-button-pause, .clear-button, .save-button {
   border: none;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -76,6 +76,10 @@ a:hover {
 
 .save-button {
   background-color: darkgreen;
+}
+
+.clear-button {
+  background-color: darkred;
 }
 
 .chrono-button-start, .chrono-button-reset, .chrono-button-flag, .chrono-button-pause {

@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Type of exercise Selector.
+// Type of exercise Selector
 
 const typeSport = ['Functional', 'Cycling', 'GYM', 'Running']
 const selectSport = document.querySelector("#selectSport")
@@ -262,6 +262,8 @@ function saveAll() {
     } else {
         const allForms = document.getElementsByClassName('formClass');
 
+        let allFormsValid = true;
+
         for (i = 0; i < allForms.length; i++) {
             inputs = allForms[i].getElementsByClassName('inputClass');
 
@@ -282,28 +284,38 @@ function saveAll() {
                 let comment = commentValue;
 
                 rutine.push(new DayExercise(day, user, type, exercise, roundRep, weight, time, comment))
-                localStorage.setItem("rutineArray", JSON.stringify(rutine))
-                succedMessage("Upload Successful")
 
             } else {
+                allFormsValid = false;
                 allForms[i].classList.add('formError')
                 j = i;
                 setTimeout(() => {
                     const removeClass = document.querySelector (".formError");
                     removeClass.classList.remove('formError')
-                // allForms[j].classList.remove('formError');
                 }, 3000);
-
                 errorMessage("SAVE ERROR", "Incomplete fields in forms");
             }
         }
+
+        if (allFormsValid) {
+            localStorage.setItem("rutineArray", JSON.stringify(rutine))
+            succedMessage("Upload Successful")
+        }
+    
     }
-    form.reset()
 }
 
 
 let rutine = []
-rutine = JSON.parse(localStorage.getItem("rutineArray")) || []
+rutine = JSON.parse(localStorage.getItem("rutineArray")) || [];
 
+
+// Clear button 
+
+let clearButton = document.querySelector("#clearButton")
+
+const clearAll = ()=> {form.reset()};
+
+clearButton.addEventListener("click", clearAll);
 
 
