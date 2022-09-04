@@ -10,11 +10,19 @@ const accessGranted = document.querySelector("button");
 accessGranted.addEventListener("click", userValidation);
 
 
-const userDataBase = [
-    { user: 'Kev', pwd: '12345' },
-    { user: 'Gonza', pwd: '22222' },
-    { user: 'Fer', pwd: '0000' }
-];
+let userDataBase = []
+
+const uploadUserDataBase = () =>{
+fetch ('https://63139021a8d3f673ffcd421e.mockapi.io/userDataBase')
+.then((response) => response.json())
+.then((data) =>{
+    userDataBase = data;
+} )
+.catch ((error) => errorMessage("Sorry, an error occurred.", "Please, try it again in a few minutes"))
+}
+
+uploadUserDataBase();
+
 
 
 
@@ -23,7 +31,6 @@ function userValidation(e) {
 
     let user = nameInput.value;
     let pwd = passInput.value;
-
 
     let userProfile = userDataBase.find((element) => {
         return element.user === user && element.pwd === pwd;
@@ -36,6 +43,3 @@ function userValidation(e) {
 
     else if (userProfile === undefined) {errorMessage ("ACCESS DENIED", "Incorrect Username or Password.")}
 }
-
-
-
