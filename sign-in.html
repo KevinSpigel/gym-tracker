@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="keywords" content="gym tracker, score card, Loggin">
+    <meta name="keywords" content="gym tracker, score card, Sign in">
 
-    <meta name="description" content="Log in page. Please, enter your username and password.">
+    <meta name="description" content="Sign in page. Please, fill with your username and password.">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Log in | Gym Tracker</title>
+    <title>Sign in | Gym Tracker</title>
 
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -27,7 +27,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
-    <script defer src="/js/index.js"></script>
+    <script defer src="/js/sign-in.js"></script>
     <script defer src="/js/alert-message.js"></script>
 
 </head>
@@ -36,26 +36,23 @@
     <main class="form-signin w-100 m-auto card card-box">
         <form>
             <img class="mb-4" src="/images/first-image.jpeg" alt="" width="72" height="57">
-            <h1 class="h3 mb-3 fw-normal">Welcome</h1>
+            <h1 class="h3 mb-3 fw-normal">Sign in</h1>
+            <h6 class="mt-1 mb-4">Please, complete the following fields</h6>
 
             <div class="form-floating mb-2">
-                <input id="nameLogIn" type="user" class="form-control" id="floatingInput" placeholder="Username"
-                    required maxlength="10">
+                <input id="newUser" type="user" class="form-control" id="floatingInput" placeholder="Username" required
+                    maxlength="10">
                 <label for="floatingInput">Username</label>
             </div>
             <div class="form-floating">
-                <input id="pass" type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                <input id="newPass" type="password" class="form-control" id="floatingPassword" placeholder="Password"
                     required maxlength="8">
                 <label for="floatingPassword">Password</label>
             </div>
 
-            <button class="w-50 mt-3 btn btn-sm btn-primary" type="submit">Log in</button>
+            <button class="w-50 mt-3 btn btn-sm btn-primary" type="submit">Submit</button>
 
-            <div class="mt-2">
-                <a href="sign-in.html" class="p-footer">Sing in</a>
-            </div>
-            
-            <p class="mt-4 text-muted p-footer">&copy2022 - By Kevin Spigel</p>
+            <p class="mt-5 text-muted p-footer">&copy2022 - By Kevin Spigel</p>
         </form>
     </main>
 

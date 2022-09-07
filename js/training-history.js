@@ -4,10 +4,10 @@
 (sessionStorage.getItem("userNameOk") === null) && (location.href= "index.html");
 
 
-// Shut down button
+// Shut down Button
 
-const shutDown = document.querySelector("#out")
-shutDown.addEventListener("click", logOutMessage)
+const shutDown = document.querySelector("#out");
+shutDown.addEventListener("click", logOutMessage);
 
 // Log-Out message
 
@@ -25,14 +25,14 @@ function logOutMessage() {
             }
             else if (result.isDenied) { return false }
         });
-}
+};
 
 
 // Tracking training table
 
-let myRutine = JSON.parse(localStorage.getItem("rutineArray"))
+let myRutine = JSON.parse(localStorage.getItem("rutineArray"));
 
-let userRutine = myRutine.filter (element => element.user === sessionStorage.getItem("userNameOk"))
+let userRutine = myRutine.filter (element => element.user === sessionStorage.getItem("userNameOk"));
 
 userRutine.forEach(element => {
 historyTable.innerHTML += 

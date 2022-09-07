@@ -12,7 +12,7 @@ const errorMessage = (title, text) => {
         position: 'top-start',
         background: 'rgba(246, 54, 54, 0.15)',
     })
-}
+};
 
 
 // Succed message
@@ -27,7 +27,7 @@ const succedMessage = (title) => {
         position: 'bottom',
         background: 'rgba(16, 169, 5, 0.15)',
     })
-}
+};
 
 
 

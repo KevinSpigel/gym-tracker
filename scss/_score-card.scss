@@ -1,7 +1,7 @@
 .p-chrono {
     color: green;
     font-size: 4rem;
-}
+};
 
 .button {
     border: none;
@@ -12,38 +12,38 @@
     width: 150px;
     margin-bottom: 5px;
     border-radius: 5px;
-}
+};
 
 .save-button {
     @extend .button;
     background-color: darkgreen;
-}
+};
 
 .clear-button {
     @extend .button;
     background-color: darkred;
-}
+};
 
 .chrono-button-start {
     @extend .button;
     background-color: rgba(54, 144, 246, 0.79);
     margin-top: 15px;
-}
+};
 
 .chrono-button-pause {
     @extend .chrono-button-start;
     background-color: rgb(232, 232, 8);
-}
+};
 
 .chrono-button-flag {
     @extend .chrono-button-start;
     background-color: rgba(16, 169, 5, 0.79);
-}
+};
 
 .chrono-button-reset {
     @extend .chrono-button-start;
     background-color: rgba(246, 54, 54, 0.79);
-}
+};
 
 .add-exercise-button {
     @extend .button;
@@ -52,16 +52,16 @@
     height: 30px;
     padding: 0;
     margin-left: 15px;
-}
+};
 
 .delete-exercise-button {
     @extend .add-exercise-button;
     background-color: rgba(174, 19, 19, 0.63);
     padding-top: 4px;
-}
+};
 
 .formError {
     border: solid 5px rgba(246, 54, 54, 0.1);
     margin-right: 2%;
     margin-left: 2%;
-}
+};

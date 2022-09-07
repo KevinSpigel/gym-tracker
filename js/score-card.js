@@ -4,10 +4,10 @@
 (sessionStorage.getItem("userNameOk") === null) && (location.href = "index.html");
 
 
-// Shut down button
+// Shut down Button
 
-const shutDown = document.querySelector("#out")
-shutDown.addEventListener("click", logOutMessage)
+const shutDown = document.querySelector("#out");
+shutDown.addEventListener("click", logOutMessage);
 
 // Log-Out message
 
@@ -25,7 +25,7 @@ function logOutMessage() {
             }
             else if (result.isDenied) { return false }
         });
-}
+};
 
 
 
@@ -141,10 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Type of exercise Selector
+// Exercise type Selector
 
-const typeSport = ['Functional', 'Cycling', 'GYM', 'Running']
-const selectSport = document.querySelector("#selectSport")
+const typeSport = ['Functional', 'Cycling', 'GYM', 'Running'];
+const selectSport = document.querySelector("#selectSport");
 
 const listSport = () => {
     if (typeSport.length > 0)
@@ -152,7 +152,7 @@ const listSport = () => {
     typeSport.forEach(sport => {
         selectSport.innerHTML += `<option>${sport}</option>`
     })
-}
+};
 
 listSport();
 
@@ -160,10 +160,10 @@ listSport();
 
 // Add newExercise Button
 
-const newExerciseForm = document.querySelector("#newExerciseForm")
-const form = document.querySelector("#form-order")
+const newExerciseForm = document.querySelector("#newExerciseForm");
+const form = document.querySelector("#form-order");
 
-newExerciseForm.addEventListener("click", newExercise)
+newExerciseForm.addEventListener("click", newExercise);
 
 let exerciseID = 1;
 
@@ -222,18 +222,18 @@ const newExerciseDelete = () => {
             e.target.parentElement.parentElement.parentElement.remove();
         });
     });
-}
+};
 
 
 
-// Save button 
+// Save Button 
 
-let btnSave = document.querySelector("#saveButton")
+let btnSave = document.querySelector("#saveButton");
 
-btnSave.addEventListener("click", saveAll)
+btnSave.addEventListener("click", saveAll);
 
-const inputDate = document.querySelector("#dateInput")
-const inputSelect = document.querySelector("#selectSport")
+const inputDate = document.querySelector("#dateInput");
+const inputSelect = document.querySelector("#selectSport");
 
 
 const validateData = (exerciseValue, roundValue, weightValue, timeRoundValue, commentValue) =>
@@ -253,7 +253,7 @@ class DayExercise {
         this.time = time;
         this.comment = comment;
     }
-}
+};
 
 function saveAll() {
 
@@ -303,7 +303,7 @@ function saveAll() {
         }
     
     }
-}
+};
 
 
 let rutine = []

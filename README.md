@@ -25,6 +25,7 @@ For tests:
 
 - APP Web.
 - Log-In.
+- Sign-In.
 - Score card.
 - Chronometer.
 - Tracking Page.
@@ -32,9 +33,9 @@ For tests:
 
 ## Tech Stack
 
-**Client:** Javascript, HTML5, CSS3, Saas, Bootstrap, SweetAlert.
+**Client:** Javascript, HTML5, CSS3, Sass, Bootstrap, SweetAlert.
 
-**Server:** mockAPI, Node.
+**Server:** mockAPI.
 
 
 ## Contributing

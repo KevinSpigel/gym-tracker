@@ -12,15 +12,19 @@ body {
   height: 100vh;
 }
 
+a {
+  text-decoration: none;
+}
+
 .p-footer {
   font-size: small;
 }
 
-a {
+.a-display {
   text-decoration: none;
   color: currentColor;
 }
-a:hover {
+.a-display:hover {
   color: currentColor;
 }
 
