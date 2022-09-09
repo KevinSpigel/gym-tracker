@@ -239,7 +239,7 @@ const inputSelect = document.querySelector("#selectSport");
 const validateData = (exerciseValue, roundValue, weightValue, timeRoundValue, commentValue) =>
     (exerciseValue != "" && roundValue != "" && weightValue != "" && timeRoundValue != "" && commentValue != "") ? true : false;
 
-const isValidCommonData = () => (inputDate.value != "" && inputSelect.value != "Type of exercise") ? true : false;
+const isValidCommonData = () => (inputDate.value != "" && inputSelect.value != "Exercise type") ? true : false;
 
 
 class DayExercise {
