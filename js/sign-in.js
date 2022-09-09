@@ -27,8 +27,8 @@ uploadUserDataBase();
 
 async function doPost() {
     const dates = {
-        user: user,
-        pwd: pwd,
+        user: newUserInput.value,
+        pwd: newPassInput.value,
     }
 
     await fetch('https://63139021a8d3f673ffcd421e.mockapi.io/userDataBase', {
