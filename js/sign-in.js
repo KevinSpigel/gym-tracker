@@ -68,7 +68,7 @@ function newUserValidation(e) {
 
     setTimeout(() => {
         location.href = "index.html"
-    }, 2000);
+    }, 4000);
 
 };
 
