@@ -9,7 +9,8 @@ The use of javascript logic was prioritized over web design.
 ## Description
 This is a Gym Tracker. It helps you track your exercises and also has a chronometer to improve your training.
 
-Once logged in, you have access to the scorecard.
+Once logged in, you have access to the scorecard. If it is necessary to create a new user, it is possible to do so through the Sign-in option.
+
 The user can select the entry date and the type of exercise.
 Once those inputs are selected, the user can proceed to load the exercises performed. It's possible to add as many entries as the user wants or delete them.
 If the fields are completed we can submit the exercises and go to Training history to view the training history.
